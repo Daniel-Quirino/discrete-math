@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1565901171 source:c:\users\daniel\desktop\estudos\sistemas de informação\2 - período\matemática discreta\maximumsum\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+
