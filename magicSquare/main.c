@@ -21,12 +21,44 @@ void fillMatrix(int **matrix, int squareSize) {
         fillOddSizeMagicBoard(matrix, squareSize);
     }
 
-    if(squareSize % 2 == 0 && squareSize % 4 != 0){
+    else if(squareSize % 2 == 0 && squareSize % 4 != 0){
         fillEvenMagicSquareSimple(matrix, squareSize, 0, 1, 3, 3, 0);
         fillEvenMagicSquareSimple(matrix, squareSize, 0, 4, 3, 6, 18);
         fillEvenMagicSquareSimple(matrix, squareSize, 3, 1, 6, 3, 27);
         fillEvenMagicSquareSimple(matrix, squareSize, 3, 4, 6, 6, 9);
     }
+
+    else if (squareSize % 2 == 0) {
+        fillEvenMagicSquare(matrix, squareSize);
+    }
+}
+
+void fillEvenMagicSquare(int **matrix, int squareSize) {
+    int count = 0;
+
+    for(int i=0; i<(squareSize); i++) {
+        for(int j=0; j<(squareSize); j++) {
+        count++;
+
+            if(i == 0 && j == 0) {
+                matrix[i][j] = count;
+            }
+            else if (i == 0 && j == squareSize-1) {
+                matrix[i][j] = count;
+            }
+            else if (i == squareSize-1 && j == 0) {
+                matrix[i][j] = count;
+            }
+            else if (i == squareSize-1 && j == squareSize-1) {
+                matrix[i][j] = count;
+            }
+        }
+    }
+
+    printf(" %d ", matrix[0][0]);printf(" %d ", matrix[0][1]);printf(" %d ", matrix[0][2]);printf(" %d ", matrix[0][3]);
+    printf("\n %d ", matrix[1][0]);printf(" %d ", matrix[1][1]);printf(" %d ", matrix[1][2]);printf(" %d ", matrix[1][3]);
+    printf("\n %d ", matrix[2][0]);printf(" %d ", matrix[2][1]);printf(" %d ", matrix[2][2]);printf(" %d ", matrix[2][3]);
+    printf("\n %d ", matrix[3][0]);printf(" %d ", matrix[3][1]);printf(" %d ", matrix[3][2]);printf(" %d ", matrix[3][3]);
 }
 
 void fillEvenMagicSquareSimple(int **matrix, int squareSize, int inicialLine, int inicialColumn, int finalLinelength, int finalColumnLength, int count) {
@@ -76,6 +108,14 @@ void fillEvenMagicSquareSimple(int **matrix, int squareSize, int inicialLine, in
             cont++;
         }
     }
+
+    printf(" %d ", matrix[0][0]);printf(" %d ", matrix[0][1]);printf(" %d ", matrix[0][2]);printf(" %d ", matrix[0][3]);printf(" %d ", matrix[0][4]);printf(" %d ", matrix[0][5]);
+    printf("\n %d ", matrix[1][0]);printf(" %d ", matrix[1][1]);printf(" %d ", matrix[1][2]);printf(" %d ", matrix[1][3]);printf(" %d ", matrix[1][4]);printf(" %d ", matrix[1][5]);
+    printf("\n %d ", matrix[2][0]);printf(" %d ", matrix[2][1]);printf(" %d ", matrix[2][2]);printf(" %d ", matrix[2][3]);printf(" %d ", matrix[2][4]);printf(" %d ", matrix[2][5]);
+    printf("\n %d ", matrix[3][0]);printf(" %d ", matrix[3][1]);printf(" %d ", matrix[3][2]);printf(" %d ", matrix[3][3]);printf(" %d ", matrix[3][4]);printf(" %d ", matrix[3][5]);
+    printf("\n %d ", matrix[4][0]);printf(" %d ", matrix[4][1]);printf(" %d ", matrix[4][2]);printf(" %d ", matrix[4][3]);printf(" %d ", matrix[4][4]);printf(" %d ", matrix[4][5]);
+    printf("\n %d ", matrix[5][0]);printf(" %d ", matrix[5][1]);printf(" %d ", matrix[5][2]);printf(" %d ", matrix[5][3]);printf(" %d ", matrix[5][4]);printf(" %d ", matrix[5][5]);
+
 }
 
 void fillOddSizeMagicBoard(int **matrix, int squareSize) {
@@ -125,6 +165,13 @@ void fillOddSizeMagicBoard(int **matrix, int squareSize) {
             cont++;
         }
     }
+
+    printf(" %d ", matrix[0][0]);printf(" %d ", matrix[0][1]);printf(" %d ", matrix[0][2]);printf(" %d ", matrix[0][3]);printf(" %d ", matrix[0][4]);
+    printf("\n %d ", matrix[1][0]);printf(" %d ", matrix[1][1]);printf(" %d ", matrix[1][2]);printf(" %d ", matrix[1][3]);printf(" %d ", matrix[1][4]);
+    printf("\n %d ", matrix[2][0]);printf(" %d ", matrix[2][1]);printf(" %d ", matrix[2][2]);printf(" %d ", matrix[2][3]);printf(" %d ", matrix[2][4]);
+    printf("\n %d ", matrix[3][0]);printf(" %d ", matrix[3][1]);printf(" %d ", matrix[3][2]);printf(" %d ", matrix[3][3]);printf(" %d ", matrix[3][4]);
+    printf("\n %d ", matrix[4][0]);printf(" %d ", matrix[4][1]);printf(" %d ", matrix[4][2]);printf(" %d ", matrix[4][3]);printf(" %d ", matrix[4][4]);
+
 }
 
 
@@ -136,13 +183,6 @@ int main()
     int **matrix = alocarMatriz(squareSize);
 
     fillMatrix(matrix, squareSize);
-
-    printf(" %d ", matrix[0][0]);printf(" %d ", matrix[0][1]);printf(" %d ", matrix[0][2]);printf(" %d ", matrix[0][3]);printf(" %d ", matrix[0][4]);printf(" %d ", matrix[0][5]);
-    printf("\n %d ", matrix[1][0]);printf(" %d ", matrix[1][1]);printf(" %d ", matrix[1][2]);printf(" %d ", matrix[1][3]);printf(" %d ", matrix[1][4]);printf(" %d ", matrix[1][5]);
-    printf("\n %d ", matrix[2][0]);printf(" %d ", matrix[2][1]);printf(" %d ", matrix[2][2]);printf(" %d ", matrix[2][3]);printf(" %d ", matrix[2][4]);printf(" %d ", matrix[2][5]);
-    printf("\n %d ", matrix[3][0]);printf(" %d ", matrix[3][1]);printf(" %d ", matrix[3][2]);printf(" %d ", matrix[3][3]);printf(" %d ", matrix[3][4]);printf(" %d ", matrix[3][5]);
-    printf("\n %d ", matrix[4][0]);printf(" %d ", matrix[4][1]);printf(" %d ", matrix[4][2]);printf(" %d ", matrix[4][3]);printf(" %d ", matrix[4][4]);printf(" %d ", matrix[4][5]);
-    printf("\n %d ", matrix[5][0]);printf(" %d ", matrix[5][1]);printf(" %d ", matrix[5][2]);printf(" %d ", matrix[5][3]);printf(" %d ", matrix[5][4]);printf(" %d ", matrix[5][5]);
 
     return 0;
 }
